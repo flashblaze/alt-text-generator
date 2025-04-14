@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "./components/ui/card";
 import { Upload, Sparkles, Loader2, ClipboardCopy, Check } from "lucide-react";
+import { cn } from "./lib/utils";
 // Removed Hono client imports as we're using fetch directly
 
 function App() {
@@ -155,12 +156,20 @@ function App() {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full flex justify-start"
+                className={cn(
+                  "w-full flex items-center",
+                  selectedFile ? "justify-start" : "justify-center"
+                )}
                 onClick={handleUploadClick}
                 disabled={isLoading}
               >
                 <Upload className="mr-2 h-4 w-4 flex-shrink-0" />
-                <span className="truncate flex-grow text-left">
+                <span
+                  className={cn(
+                    selectedFile ? "truncate flex-grow text-left" : "",
+                    "text-sm"
+                  )}
+                >
                   {selectedFile
                     ? `Selected: ${selectedFile.name}`
                     : "Upload image"}
