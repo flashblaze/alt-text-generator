@@ -139,7 +139,7 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+    <div className="flex min-h-dvh items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <form onSubmit={handleGenerate}>
           <CardHeader>
@@ -155,14 +155,16 @@ function App() {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full"
+                className="w-full flex justify-start"
                 onClick={handleUploadClick}
                 disabled={isLoading}
               >
-                <Upload className="mr-2 h-4 w-4" />
-                {selectedFile
-                  ? `Selected: ${selectedFile.name}`
-                  : "Upload image"}
+                <Upload className="mr-2 h-4 w-4 flex-shrink-0" />
+                <span className="truncate flex-grow text-left">
+                  {selectedFile
+                    ? `Selected: ${selectedFile.name}`
+                    : "Upload image"}
+                </span>
               </Button>
               <Input
                 id="fileUpload"

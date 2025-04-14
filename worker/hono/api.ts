@@ -94,7 +94,7 @@ app.post("/api/get-alt", async (c) => {
                 "@cf/meta/llama-3.2-11b-vision-instruct",
                 {
                     prompt:
-                        "Create a concise alt text for this image. Use simple language and focus on the main subject. Keep it under 160 characters.",
+                        "Create alt text for this image. Use simple language and try to describe the image in detail. Keep it under 1000 characters.",
                     image: Array.from(new Uint8Array(imageData)),
                     stream: false
                 },
