@@ -72,11 +72,6 @@ function App() {
     const formData = new FormData();
     formData.append("image", selectedFile);
 
-    console.log("FormData entries:");
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
-
     try {
       const res = await fetch("/api/get-alt", {
         method: "POST",
