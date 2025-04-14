@@ -1,0 +1,28 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "alt-text-generator",
+	"main": "worker/index.ts",
+	"compatibility_date": "2025-04-13",
+	"assets": {
+		"not_found_handling": "single-page-application"
+	},
+	"route": {
+		"pattern": "alt.flashblaze.dev",
+		"custom_domain": true
+	},
+	"observability": {
+		"enabled": true
+	},
+	"ai": {
+		"binding": "AI"
+	},
+	"vars": {
+		"NODE_VERSION": "20.17.0",
+		"PNPM_VERSION": "10.4.1"
+	},
+	"placement": { "mode": "smart" }
+}
